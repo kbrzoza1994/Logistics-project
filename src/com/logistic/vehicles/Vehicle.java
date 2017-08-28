@@ -38,7 +38,7 @@ public class Vehicle {
         this.registrationNumber = registrationNumber;
     }
 
-    Vehicle(String brand, String registrationNumber, Integer weight, Integer mileage) {
+    public Vehicle(String brand, String registrationNumber, Integer weight, Integer mileage) {
         this.brand = brand;
         this.registrationNumber = registrationNumber;
         this.weight = weight;

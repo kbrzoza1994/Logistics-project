@@ -1,5 +1,5 @@
 package com.logistic.employees;
-
+//in the future we can add employees other than drivers
 public class Employee {
 
     private String firstName, lastName;
@@ -29,7 +29,7 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
-    public Employee(String firstName, String lastName, Integer employeeId) {
+    Employee(String firstName, String lastName, Integer employeeId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.employeeId = employeeId;

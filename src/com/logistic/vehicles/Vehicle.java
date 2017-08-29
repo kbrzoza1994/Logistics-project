@@ -1,10 +1,23 @@
 package com.logistic.vehicles;
 
-public class Vehicle {
+import java.awt.*;
+
+public class Vehicle implements Trackable{
     private String brand, registrationNumber;
     private Integer mileage;
     private Integer weight;
+    private Integer driverId;
+    private Boolean avileable;
     //private Integer vinNumber;  add at the end
+
+
+    public Integer getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(Integer driverId) {
+        this.driverId = driverId;
+    }
 
     public String getBrand() {
         return brand;
@@ -38,10 +51,30 @@ public class Vehicle {
         this.registrationNumber = registrationNumber;
     }
 
-    public Vehicle(String brand, String registrationNumber, Integer weight, Integer mileage) {
+    public Boolean getAvileable() {
+        return avileable;
+    }
+
+    public void setAvileable(Boolean avileable) {
+        this.avileable = avileable;
+    }
+
+    public Vehicle(String brand, String registrationNumber, Integer weight, Integer mileage, Integer drivenBy) {
         this.brand = brand;
         this.registrationNumber = registrationNumber;
         this.weight = weight;
         this.mileage = mileage;
+        this.driverId = drivenBy;
+        this.avileable = true;
+    }
+
+    @Override
+    public Point getLocation() {
+        return null;
+    }
+
+    @Override
+    public void setLocation(Double latitude, Double longitude) {
+
     }
 }

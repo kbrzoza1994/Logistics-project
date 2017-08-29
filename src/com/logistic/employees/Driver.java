@@ -2,7 +2,7 @@ package com.logistic.employees;
 
 public class Driver extends Employee {
 
-   private Boolean ableDriveBus, ableDriveTruck;
+   private Boolean ableDriveBus, ableDriveTruck, avileable;
 
     public Driver(String firstName, String lastName, Integer employeeId) {
         super(firstName, lastName, employeeId);
@@ -12,6 +12,7 @@ public class Driver extends Employee {
         super(firstName, lastName, employeeId);
         this.ableDriveBus = ableDriveBus;
         this.ableDriveTruck = ableDriveTruck;
+        this.avileable=true;
     }
 
     public boolean isAbleDriveBus() {
@@ -28,5 +29,13 @@ public class Driver extends Employee {
 
     public void setAbleDriveTruck(boolean ableDriveTruck) {
         this.ableDriveTruck = ableDriveTruck;
+    }
+
+    public Boolean getAvileable() {
+        return avileable;
+    }
+
+    public void setAvileable(Boolean avileable) {
+        this.avileable = avileable;
     }
 }

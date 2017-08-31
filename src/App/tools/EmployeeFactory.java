@@ -36,18 +36,5 @@ public class EmployeeFactory {
 
     }
 
-    public String fireEmployee(Integer employeeId) {
 
-        for (Integer set : employees.keySet()) {
-            if (employeeId==set)
-                employees.remove(employeeId);
-
-        }
-        return ("Found given Id, Employee fired");
-    }
-
-    public String hireEmployee(Integer employeeId, String firstName, String lastName, Boolean ableDriveBus, Boolean ableDriveTruck) {
-        employees.put(employeeId, new Driver(firstName, lastName, employeeId,ableDriveBus,ableDriveTruck));
-        return ("Successfully added employee");
-    }
 }

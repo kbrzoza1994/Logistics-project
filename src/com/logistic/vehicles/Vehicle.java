@@ -8,8 +8,25 @@ public class Vehicle implements Trackable{
     private Integer weight;
     private Integer driverId;
     private Boolean avileable;
+    private Double latitude, longitude;
     //private Integer vinNumber;  add at the end
 
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 
     public Integer getDriverId() {
         return driverId;
@@ -70,11 +87,17 @@ public class Vehicle implements Trackable{
 
     @Override
     public Point getLocation() {
-        return null;
+
+        Point point = new Point();
+        point.setLocation(latitude,longitude);
+
+        return point.getLocation();
     }
 
     @Override
     public void setLocation(Double latitude, Double longitude) {
+        this.latitude=latitude;
+        this.longitude=longitude;
 
     }
 }

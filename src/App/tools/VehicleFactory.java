@@ -52,17 +52,5 @@ public class VehicleFactory {
         return vehicles;
     }
 
-    public String addVehicle(String registrationNumber, String brand, Integer weight, Integer mileage,Integer driverId){
-        vehicles.put(registrationNumber,new Vehicle(brand,registrationNumber,weight,mileage,driverId));                              //must change to possibility to create different subclasses
-        return ("Successfully added vehicle to fleet");
-    }
-    public String removeVehicle(String registrationNumber){
 
-        for (String s : vehicles.keySet()) {
-            if (registrationNumber.equals(s)){
-                vehicles.remove(registrationNumber);
-            }
-        }
-        return ("Succesfully added vehicle");
-    }
 }

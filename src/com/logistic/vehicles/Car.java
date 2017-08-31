@@ -9,6 +9,7 @@ public class Car extends Vehicle{
 
     @Override
     public Point getLocation() {
+
         return null;
     }
 

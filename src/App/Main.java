@@ -1,8 +1,11 @@
 package App;
 
+import com.logistic.Company;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        Company vergilius = new Company();
+        vergilius.run();
     }
 }

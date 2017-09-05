@@ -104,7 +104,7 @@ public class Company {
                             do {
 
                                 type = scanner.next();
-                            } while (type.equals("id") || type.equals("name"));
+                            } while (type.equals("id") ^ type.equals("name"));
 
                             if (type.equals("id")) {
                                 System.out.print("Please type Id: ");
@@ -121,7 +121,7 @@ public class Company {
                                 employee = findEmployeeByName(fname, lname);
                             }
 
-                            if (employee.equals(null)) System.out.println("Didn't find employee.");
+                            if (employee==null) System.out.println("Didn't find employee.");
                             else
                                 System.out.println("[Id: " + employee.getEmployeeId() + "; First name: " + employee.getFirstName() + "; Last name: " + employee.getLastName() + "]");
 
@@ -132,7 +132,7 @@ public class Company {
                             System.out.print("Enter Driver id: ");
                             number = (Integer) scanner.nextInt();
                             vehicle = findVehicleByDriver(number);
-                            if (vehicle.equals(null)) {
+                            if (vehicle==null) {
                                 System.out.println("Didn't find vehicle");
                             } else {
                                 System.out.println("[regisNumber: " + vehicle.getRegistrationNumber() + "; Brand: " + vehicle.getBrand() + "; weight(kg): " + vehicle.getWeight() + "; mileage(km): " + vehicle.getMileage() + "]");
@@ -196,7 +196,7 @@ public class Company {
     public Vehicle findVehicleByRegisNumb(String registrationNumber) {
         Vehicle vehicle = null;
         for (String s : vehicles.keySet()) {
-            if (s == registrationNumber) {
+            if (s.equals(registrationNumber)){
                 vehicle = vehicles.get(s);
             }
         }
@@ -229,12 +229,12 @@ public class Company {
     }
 
     public HashMap<String, Vehicle> getAvileabeVehicles() {
-        HashMap<String, Vehicle> vehiclesAv = null;
-
-        for (Vehicle vehicle : vehicles.values()) {
-            if (vehicle.getAvileable()) {
-                vehiclesAv.put(vehicle.getRegistrationNumber(), vehicle);
+        HashMap<String, Vehicle> vehiclesAv = vehicles;
+        for (String s : vehicles.keySet()) {
+            if (!vehiclesAv.get(s).getAvileable()) {
+                vehiclesAv.remove(s);
             }
+
         }
 
 
@@ -242,10 +242,12 @@ public class Company {
     }
 
     public HashMap<String, Vehicle> getOnRoadVehicles() {
-        HashMap<String, Vehicle> vehiclesOnRoad = null;
+        HashMap<String, Vehicle> vehiclesOnRoad = vehicles;
         for (String s : vehicles.keySet()) {
-            if (!vehicles.get(s).getAvileable())
-                vehiclesOnRoad.put(s, vehicles.get(s));
+            if (!vehiclesOnRoad.get(s).getAvileable()) {
+                vehiclesOnRoad.remove(s);
+            }
+
         }
         return vehiclesOnRoad;
     }
